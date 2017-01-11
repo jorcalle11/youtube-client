@@ -4,11 +4,11 @@ import { ListGroupItem,Media,Label } from 'react-bootstrap';
 
 const label = {color: '#777', backgroundColor: 'unset',display:'block',textAlign: 'left'}
 
-const VideoListItem = ({video}) => {
+const VideoListItem = ({video,onVideoSelected}) => {
   const { snippet } = video
   const { url } = snippet.thumbnails.default
   return (
-    <ListGroupItem href={snippet.thumbnails.medium.url}>
+    <ListGroupItem onClick={() => onVideoSelected(video)}>
       <Media>
         <Media.Left>
           <img
