@@ -7,13 +7,18 @@ class SearchBar extends Component {
     this.state = { word : ''}
   }
 
+  handleChange(term) {
+    this.setState({word : term})
+    this.props.onSearch(term)
+  }
+
   render() {
     return(
       <FormControl
         type="text"
         placeholder="Busca un video..."
         value={this.state.word}
-        onChange={e => this.setState({word : e.target.value})}/>
+        onChange={e => this.handleChange(e.target.value)}/>
     )
   }
 }
